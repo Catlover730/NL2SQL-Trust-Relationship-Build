@@ -1,0 +1,8 @@
+// SQL Visualization
+digraph {
+	SELECT [label=SELECT]
+	FROM [label=FROM]
+	WHERE [label=WHERE]
+	FROM -> WHERE
+	WHERE -> SELECT
+}

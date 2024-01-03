@@ -1,0 +1,223 @@
+[
+    {
+      "parsed_sql": {
+        "select_fields": ["name", "email"],
+        "tables": ["employees"],
+        "conditions": ["department = 'Sales'"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Do you want to retrieve 'name' and 'email' from the 'employees' table?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include employees in the 'Sales' department?",
+          "user_response": "Yes"
+        }
+      ]
+    },
+    {
+      "parsed_sql": {
+        "select_fields": ["id", "name"],
+        "tables": ["products"],
+        "conditions": ["price > 100"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Are you interested in selecting 'id' and 'name' from the 'products' table?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include products where 'price' is greater than 100?",
+          "user_response": "Yes"
+        }
+      ]
+    },
+    {
+      "parsed_sql": {
+        "select_fields": ["ALL"],
+        "tables": ["orders"],
+        "conditions": ["date >= '2020-01-01'"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Do you want to select all fields from the 'orders' table?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include orders from on or after '2020-01-01'?",
+          "user_response": "Yes"
+        }
+      ]
+    },
+    {
+      "parsed_sql": {
+        "select_fields": ["customer_id", "total_amount"],
+        "tables": ["invoices"],
+        "conditions": ["total_amount > 500"],
+        "group_by": ["customer_id"],
+        "having": ["SUM(total_amount) > 1000"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Do you want to select 'customer_id' and 'total_amount' from 'invoices'?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include invoices where 'total_amount' is greater than 500?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Do you want to group the results by 'customer_id'?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include groups having a total sum of 'total_amount' greater than 1000?",
+          "user_response": "Yes"
+        }
+      ]
+    },
+    {
+      "parsed_sql": {
+        "select_fields": ["product_id", "COUNT(*)"],
+        "tables": ["orders"],
+        "conditions": ["order_date > '2021-01-01'"],
+        "group_by": ["product_id"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Are you interested in selecting 'product_id' and the count of orders from 'orders' table?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include orders made after '2021-01-01'?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Do you want to group the results by 'product_id'?",
+          "user_response": "Yes"
+        }
+      ]
+    },
+    {
+      "parsed_sql": {
+        "select_fields": ["name", "AVG(salary)"],
+        "tables": ["employees"],
+        "conditions": ["department = 'HR'"],
+        "group_by": ["department"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Do you want to retrieve 'name' and average 'salary' from the 'employees' table?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include employees in the 'HR' department?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Do you want to group the results by 'department'?",
+          "user_response": "Yes"
+        }
+      ]
+    },
+    {
+      "parsed_sql": {
+        "select_fields": ["category", "SUM(revenue)"],
+        "tables": ["sales"],
+        "conditions": ["region = 'West'"],
+        "group_by": ["category"],
+        "having": ["SUM(revenue) > 10000"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Are you interested in selecting 'category' and sum of 'revenue' from the 'sales' table?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include sales in the 'West' region?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Do you want to group the results by 'category'?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include categories with a total 'revenue' greater than 10000?",
+          "user_response": "Yes"
+        }
+      ]
+    },
+    {
+      "parsed_sql": {
+        "select_fields": ["employee_id", "MAX(sales_amount)"],
+        "tables": ["sales_records"],
+        "conditions": ["sales_amount > 0"],
+        "group_by": ["employee_id"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Do you want to select 'employee_id' and maximum 'sales_amount' from 'sales_records' table?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include records where 'sales_amount' is greater than 0?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Do you want to group the results by 'employee_id'?",
+          "user_response": "Yes"
+        }
+      ]
+    },
+    {
+      "parsed_sql": {
+        "select_fields": ["department", "COUNT(employee_id)"],
+        "tables": ["employees"],
+        "conditions": ["start_date >= '2019-01-01'"],
+        "group_by": ["department"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Are you interested in selecting 'department' and count of 'employee_id' from 'employees'?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include employees who started on or after '2019-01-01'?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Do you want to group the results by 'department'?",
+          "user_response": "Yes"
+        }
+      ]
+    },
+    {
+      "parsed_sql": {
+        "select_fields": ["store_id", "AVG(transaction_value)"],
+        "tables": ["transactions"],
+        "conditions": ["transaction_date BETWEEN '2021-01-01' AND '2021-12-31'"],
+        "group_by": ["store_id"],
+        "order_by": ["AVG(transaction_value) DESC"]
+      },
+      "interactive_steps": [
+        {
+          "question": "Do you want to retrieve 'store_id' and average 'transaction_value' from 'transactions'?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the data only include transactions between '2021-01-01' and '2021-12-31'?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Do you want to group the results by 'store_id'?",
+          "user_response": "Yes"
+        },
+        {
+          "question": "Should the results be ordered by average 'transaction_value' in descending order?",
+          "user_response": "Yes"
+        }
+      ]
+    }
+  ]
+  

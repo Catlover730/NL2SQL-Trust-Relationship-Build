@@ -1,0 +1,17 @@
+// SQL Visualization
+digraph {
+	SELECT [label="Selecting fields: column1
+"]
+	FROM [label="From table: table1
+"]
+	WHERE [label="Where conditions: column2 = 'value'
+"]
+	GROUP_BY [label="Grouping by: column3
+"]
+	HAVING [label="Having conditions: count(column1) > 5
+"]
+	FROM -> WHERE [label="filtered by"]
+	WHERE -> GROUP_BY [label="then grouping"]
+	GROUP_BY -> HAVING [label="with aggregation condition"]
+	HAVING -> SELECT [label="final selection"]
+}
